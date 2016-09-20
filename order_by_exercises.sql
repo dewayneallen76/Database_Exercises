@@ -2,7 +2,8 @@
 -- Now add a condition to find everybody with those names who is also male — 441 rows.
 SELECT * FROM employees WHERE gender = 'M' AND (first_name ='Irena' OR first_name = 'Vidya' OR first_name ='Maya')
 -- Modify your first query to order by first name. The first result should be Irena Majewski and the last result should be Vidya Schaft.
-ORDER BY first_name ASC;
+-- Update the query to order by first name and then last name. The first result should now be Irena Acton and the last should be Vidya Zweizig.
+ORDER BY first_name ASC, last_name ASC;
 -- Find all employees whose last name starts or ends with 'E' — 30,723 rows.
 SELECT * FROM employees WHERE last_name LIKE 'e%' OR last_name LIKE'%e';
 -- Duplicate the previous query and update it to find all employees whose last name starts and ends with 'E' — 899 rows.
