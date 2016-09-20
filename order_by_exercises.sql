@@ -14,6 +14,8 @@ SELECT * FROM employees WHERE last_name LIKE 'e%' AND last_name LIKE '%e'
 -- Now reverse the sort order for both queries.
 ORDER BY emp_no DESC;
 -- Find ALL employees hired IN the 90s AND born ON Christmas — 362 rows. 
-SELECT * FROM employees WHERE hire_date LIKE '199%' AND birth_date LIKE '%-12-25';
+-- Change the query for employees hired in the 90s and born on Christmas such that the first result is the oldest employee who was hired last. It should be Khun Bernini.
+SELECT * FROM employees WHERE hire_date LIKE '199%' AND birth_date LIKE '%-12-25'
+ORDER BY hire_date DESC, birth_date ASC;
 -- Find all employees with a 'q' in their last name but not 'qu'— 547 rows.
 SELECT * FROM employees WHERE last_name LIKE '%q%' AND last_name NOT LIKE '%qu%';
