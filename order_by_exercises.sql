@@ -11,7 +11,8 @@ SELECT * FROM employees WHERE last_name LIKE 'e%' OR last_name LIKE'%e'
 ORDER BY emp_no ASC;
 -- Duplicate the previous query and update it to find all employees whose last name starts and ends with 'E' — 899 rows.
 SELECT * FROM employees WHERE last_name LIKE 'e%' AND last_name LIKE '%e'
-ORDER BY emp_no ASC;
+-- Now reverse the sort order for both queries.
+ORDER BY emp_no DESC;
 -- Find ALL employees hired IN the 90s AND born ON Christmas — 362 rows. 
 SELECT * FROM employees WHERE hire_date LIKE '199%' AND birth_date LIKE '%-12-25';
 -- Find all employees with a 'q' in their last name but not 'qu'— 547 rows.
