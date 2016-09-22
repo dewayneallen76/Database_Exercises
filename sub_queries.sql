@@ -44,4 +44,21 @@ WHERE emp_no IN(
     SELECT emp_no
     FROM employees
 	WHERE gender = 'F'
-    ));
+    )
+    AND to_date = '9999-01-01'
+    );
+    
+-- BONUS QUERIES       
+-- what is the most common birthday in the company? least common?
+SELECT DISTINCT COUNT(birth_date) 
+FROM employees
+WHERE birth_date IN (
+    SELECT birth_date
+    FROM employees 
+
+-- what is the average salary of managers by department?
+-- how many employees currently work in each department?
+-- what is the average salary for each department?
+-- what was the average salary in the 80s? By department?
+-- how many times (on average) do employees switch titles?
+-- how many times (on average) do employees get a raise?
