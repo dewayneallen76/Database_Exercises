@@ -52,5 +52,26 @@ JOIN employees AS dme
 	ON dm.emp_no = dme.emp_no
 WHERE de.to_date = '9999-01-01' AND dm.to_date = '9999-01-01';
 
+-- Is there wage discrimination based on gender in the company? 
+SELECT d.dept_name AS "Department Name", e.gender AS "Gender", AVG(s.salary) AS "Average Salary"
+FROM employees AS e
+JOIN salaries AS s
+	ON e.emp_no = s.emp_no
+JOIN dept_emp AS de
+	ON de.emp_no = e.emp_no
+JOIN departments AS d
+	ON de.dept_no = d.dept_no
+WHERE s.to_date > CURTIME()
+AND de.to_date > CURTIME()
+GROUP BY e.gender, d.dept_name
+ORDER BY d.dept_name, e.gender;
 
-
+-- Breakdown departments by gender 
+SELECT d.dept_name AS "Deparment Name", COUNT(e.gender) AS "Total", e.gender AS "Gender"
+FROM employees AS e
+JOIN dept_emp AS de
+	ON e.emp_no = de.emp_no
+JOIN departments AS d
+	ON d.dept_no = de.dept_no
+GROUP BY e.gender, d.dept_name
+ORDER BY d.dept_name, e.gender
